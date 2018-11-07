@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alexander Tyutyarev",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pcap": "^2.1.0",
+    "pcap-parser": "^0.2.1"
+  }
 }
