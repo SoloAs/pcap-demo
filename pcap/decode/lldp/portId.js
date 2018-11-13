@@ -7,10 +7,16 @@ function portId() {
 portId.prototype.decode = function(tlv, raw_packet, offset, length) {
 	
 	tlv.portIdSubType = raw_packet.readUInt8(offset, true);
-	
 	switch(tlv.portIdSubType) {
 		case 1:
 		case 2:
+			/* console.log('\n--------------------------')
+			console.log(raw_packet.readUInt8(offset, true))
+			console.log(raw_packet.readUInt8(offset+1, true))
+			console.log(raw_packet.readUInt8(offset+2, true))
+			console.log('\n--------------------------') */
+			tlv.intString = raw_packet.readUInt8(offset+2, true); 
+			break; 
 		case 5:
 		case 6:
 		case 7:
