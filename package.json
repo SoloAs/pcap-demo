@@ -9,7 +9,7 @@
   "author": "Alexander Tyutyarev",
   "license": "ISC",
   "dependencies": {
-    "pcap": "^2.1.0",
-    "pcap-parser": "^0.2.1"
+    "pcap-parser": "^0.2.1",
+    "socketwatcher": "^0.3.0"
   }
 }

@@ -303,13 +303,13 @@ $(obj).$(TOOLSET)/%.o: $(obj)/%.s FORCE_DO_CMD
 
 ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
     $(findstring $(join ^,$(prefix)),\
-                 $(join ^,socketwatcher.target.mk)))),)
-  include socketwatcher.target.mk
+                 $(join ^,pcap_binding.target.mk)))),)
+  include pcap_binding.target.mk
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = cd $(srcdir); /usr/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/root/alex/pcap-demo/node_modules/socketwatcher/build/config.gypi -I/usr/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/root/.node-gyp/8.12.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/root/.node-gyp/8.12.0" "-Dnode_gyp_dir=/usr/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/root/.node-gyp/8.12.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/root/alex/pcap-demo/node_modules/socketwatcher" "-Dnode_engine=v8" binding.gyp
-Makefile: $(srcdir)/../../../../.node-gyp/8.12.0/include/node/common.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../../../../usr/lib/node_modules/npm/node_modules/node-gyp/addon.gypi
+cmd_regen_makefile = cd $(srcdir); /usr/lib/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/root/alex/pcap-demo/node_modules/pcap/build/config.gypi -I/usr/lib/node_modules/node-gyp/addon.gypi -I/root/.node-gyp/8.12.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/root/.node-gyp/8.12.0" "-Dnode_gyp_dir=/usr/lib/node_modules/node-gyp" "-Dnode_lib_file=/root/.node-gyp/8.12.0/<(target_arch)/node.lib" "-Dmodule_root_dir=/root/alex/pcap-demo/node_modules/pcap" "-Dnode_engine=v8" binding.gyp
+Makefile: $(srcdir)/../../../../.node-gyp/8.12.0/include/node/common.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../../../../usr/lib/node_modules/node-gyp/addon.gypi
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included
